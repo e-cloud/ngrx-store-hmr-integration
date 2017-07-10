@@ -11,8 +11,8 @@ if (environment.production) {
   enableProdMode()
 }
 
-function basicBootstrap(AppModule) {
-  return platformBrowserDynamic().bootstrapModule(AppModule)
+function basicBootstrap(Module) {
+  return platformBrowserDynamic().bootstrapModule(Module)
     .then(MODULE_REF => {
       console.log('Bootstrap success')
 
@@ -21,8 +21,8 @@ function basicBootstrap(AppModule) {
   // .catch(err => console.error(err));
 }
 
-function hmrBootstrap(AppModule) {
-  const bootPromise = basicBootstrap(AppModule)
+function hmrBootstrap(Module) {
+  const bootPromise = basicBootstrap(Module)
 
   bootPromise.then(function (MODULE_REF) {
     if (module['hot']) {
